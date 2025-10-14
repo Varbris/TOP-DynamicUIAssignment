@@ -1,0 +1,66 @@
+.drop-down-btn {
+  background-color: #e1ecf4;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #39739d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+    sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.drop-down-btn:hover,
+.drop-down-btn:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
+}
+
+.drop-down-btn:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+.drop-down-btn:active {
+  background-color: #a0c7e4;
+  box-shadow: none;
+  color: #2c5777;
+}
+
+.hidden {
+  display: none;
+}
+
+.drop-down {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+}
+
+.drop-down-container {
+  width: 200px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.384);
+  border-radius: 10px;
+  padding: 0px 10px;
+  margin-top: 15px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.drop-down-container > .drop-down > li:hover {
+  background-color: #39739d;
+}

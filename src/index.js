@@ -1,14 +1,20 @@
 import "./style.css";
-import { createButton, createDropDown, createLayout } from "./dom";
+import {
+  createButton,
+  createCarousel,
+  createDropDown,
+  createLayout,
+} from "./dom";
 import { dropDownEvent } from "./event";
 
 document.addEventListener("DOMContentLoaded", main);
 
-function main(event) {
+function main() {
   const body = document.getElementById("body");
   const layout = createLayout();
   body.appendChild(layout);
   body.querySelector("nav").appendChild(dropDownButton());
+  body.querySelector("article").appendChild(carousel());
 }
 
 function dropDownButton() {
@@ -18,4 +24,10 @@ function dropDownButton() {
     dropDownEvent(event, dropDownElement);
   });
   return button;
+}
+
+function carousel() {
+  const carousel = createCarousel();
+
+  return carousel;
 }

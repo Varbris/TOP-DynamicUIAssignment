@@ -48,4 +48,10 @@ function createDropDown() {
   return div.el;
 }
 
-export { createButton, createLayout, createDropDown };
+function createCarousel() {
+  const carouselContainer = createElement("div");
+  carouselContainer.addClassList("carousel-container");
+  return carouselContainer.el;
+}
+
+export { createButton, createLayout, createDropDown, createCarousel };

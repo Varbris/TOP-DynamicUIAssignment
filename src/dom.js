@@ -1,4 +1,9 @@
 import { createElement } from "./create.js";
+import Pudding from "./img/1.png";
+import Burger from "./img/2.png";
+import Peach from "./img/3.png";
+import Previous from "./img/previous.png";
+import Next from "./img/next.png";
 
 function createButton(name) {
   const button = createElement("button");
@@ -51,7 +56,27 @@ function createDropDown() {
 function createCarousel() {
   const carouselContainer = createElement("div");
   carouselContainer.addClassList("carousel-container");
+  const carouselImgContainer = createElement("div");
+  carouselImgContainer.addClassList("carousel-img-container");
+
+  const img = new Image();
+  img.src = Pudding;
+
+  carouselImgContainer.addChild(img);
+  carouselContainer.addChild(carouselImgContainer.el);
+  carouselContainer.addChild(createCarouselBtn("previous", Previous));
+  carouselContainer.addChild(createCarouselBtn("next", Next));
   return carouselContainer.el;
+}
+
+function createCarouselBtn(classname, img) {
+  const button = createElement("button");
+  const btnImg = createElement("img");
+  btnImg.addAttribute("src", img);
+  button.addClassList("carousel-btn");
+  button.addClassList(classname);
+  button.addChild(btnImg.el);
+  return button.el;
 }
 
 export { createButton, createLayout, createDropDown, createCarousel };

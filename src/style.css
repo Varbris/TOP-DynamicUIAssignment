@@ -52,6 +52,7 @@
 }
 
 .drop-down-container {
+  position: absolute;
   width: 200px;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.384);
@@ -63,4 +64,43 @@
 
 .drop-down-container > .drop-down > li:hover {
   background-color: #39739d;
+}
+
+.carousel-container {
+  background-color: rgba(57, 120, 131, 0.219);
+  width: 100%;
+  margin: 10vh auto;
+  display: grid;
+  grid-template-areas: "previous image next";
+}
+
+.carousel-img-container > img {
+  display: block;
+  margin: auto;
+  width: 40%;
+  grid-area: image;
+}
+
+.carousel-btn {
+  background-color: none;
+  background: none;
+  border: none;
+}
+.carousel-btn > img {
+  max-width: 50px;
+}
+.next {
+  grid-area: next;
+}
+
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.151);
+}
+
+.previous {
+  grid-area: previous;
+}
+
+.previous:hover {
+  background-color: rgba(0, 0, 0, 0.151);
 }

@@ -17,7 +17,11 @@ function createElement(tag) {
     el.classList.add(value);
   };
 
-  return { el, addAttribute, addChild, addInner, addClassList };
+  const addInnerHtml = function (value) {
+    el.innerHTML = value;
+  };
+
+  return { el, addAttribute, addChild, addInner, addClassList, addInnerHtml };
 }
 
 export { createElement };

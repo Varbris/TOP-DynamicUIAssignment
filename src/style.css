@@ -88,6 +88,7 @@
 }
 .carousel-btn > img {
   max-width: 50px;
+  pointer-events: none;
 }
 .next {
   grid-area: next;
@@ -96,6 +97,9 @@
 .next:hover {
   background-color: rgba(0, 0, 0, 0.151);
 }
+.next:active {
+  background-color: rgba(0, 0, 0, 0.356);
+}
 
 .previous {
   grid-area: previous;
@@ -103,4 +107,8 @@
 
 .previous:hover {
   background-color: rgba(0, 0, 0, 0.151);
+}
+
+.previous:active {
+  background-color: rgba(0, 0, 0, 0.356);
 }

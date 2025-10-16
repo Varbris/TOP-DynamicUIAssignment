@@ -5,7 +5,10 @@ import {
   createDropDown,
   createLayout,
 } from "./dom";
-import { dropDownEvent } from "./event";
+import { carouselEvent, dropDownEvent } from "./event";
+import Pudding from "./img/1.png";
+import Burger from "./img/2.png";
+import Peach from "./img/3.png";
 
 document.addEventListener("DOMContentLoaded", main);
 
@@ -27,7 +30,14 @@ function dropDownButton() {
 }
 
 function carousel() {
-  const carousel = createCarousel();
+  const myImg = [Pudding, Burger, Peach];
 
+  const carousel = createCarousel(myImg[0]);
+  const carouselBtn = carousel.querySelectorAll("button");
+  carouselBtn.forEach((element) => {
+    element.addEventListener("click", function (event) {
+      carouselEvent(event, myImg);
+    });
+  });
   return carousel;
 }

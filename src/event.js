@@ -29,21 +29,26 @@ function nextBtn(event, myData, currentData) {
       .querySelector("img");
     getImage.src = myData[currentData + 1];
     getImage.dataset.id = currentData + 1;
-    console.log(getImage.dataset.id);
+    console.log(currentData + 1);
     currentData++;
   }
 }
 
 function previousBtn(event, myData, currentData) {
-  if (event.target.id === "previousBtn" && currentData === myData.length - 1) {
+  if (
+    event.target.id === "previousBtn" &&
+    currentData !== 0 &&
+    currentData >= 0
+  ) {
+    console.log("awikwok2");
     currentData--;
     const myCarousel = document.querySelector(".carousel-container");
     const getImage = myCarousel
       .querySelector(".carousel-img-container")
       .querySelector("img");
-    getImage.src = myData[currentData - 1];
-    getImage.dataset.id = currentData - 1;
-    console.log(getImage.dataset.id);
+    getImage.src = myData[currentData];
+    getImage.dataset.id = currentData;
+    console.log(currentData - 1);
   }
 }
 

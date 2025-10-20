@@ -24,7 +24,7 @@ function carouselEvent(event, myData) {
 
 function nextBtn(event, myData, currentData) {
   if (currentData === myData.length - 1) {
-    currentData = -1;
+    currentData = myData.length - myData.length - 1;
   }
   if (currentData < myData.length - 1 && event.target.id === "nextBtn") {
     currentData++;
@@ -40,7 +40,9 @@ function nextBtn(event, myData, currentData) {
 }
 
 function previousBtn(event, myData, currentData) {
-  console.log("awikwok");
+  if (currentData === 0) {
+    currentData = currentData + myData.length;
+  }
   if (
     event.target.id === "previousBtn" &&
     currentData !== 0 &&

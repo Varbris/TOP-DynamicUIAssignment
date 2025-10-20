@@ -18,19 +18,20 @@ function carouselEvent(event, myData) {
 
   previousBtn(event, myData, parseInt(currentData));
   nextBtn(event, myData, parseInt(currentData));
+  indicatorBtn(event, myData, parseInt(currentData));
 }
 
 function nextBtn(event, myData, currentData) {
   if (currentData < myData.length - 1 && event.target.id === "nextBtn") {
-    console.log("awikwok");
+    currentData++;
     const myCarousel = document.querySelector(".carousel-container");
     const getImage = myCarousel
       .querySelector(".carousel-img-container")
       .querySelector("img");
-    getImage.src = myData[currentData + 1];
-    getImage.dataset.id = currentData + 1;
-    console.log(currentData + 1);
-    currentData++;
+    getImage.src = myData[currentData];
+    getImage.dataset.id = currentData;
+    removeIndicatorHighlight();
+    addIndicatorHighlight(currentData);
   }
 }
 
@@ -40,7 +41,6 @@ function previousBtn(event, myData, currentData) {
     currentData !== 0 &&
     currentData >= 0
   ) {
-    console.log("awikwok2");
     currentData--;
     const myCarousel = document.querySelector(".carousel-container");
     const getImage = myCarousel
@@ -48,8 +48,36 @@ function previousBtn(event, myData, currentData) {
       .querySelector("img");
     getImage.src = myData[currentData];
     getImage.dataset.id = currentData;
-    console.log(currentData - 1);
+    removeIndicatorHighlight();
+    addIndicatorHighlight(currentData);
+  }
+}
+function indicatorBtn(event, myData, currentData) {
+  if (event.target.id === "carouselIndicatorBtn") {
+    const myCarousel = document.querySelector(".carousel-container");
+    const getImage = myCarousel
+      .querySelector(".carousel-img-container")
+      .querySelector("img");
+    getImage.src = myData[event.target.dataset.id];
+    getImage.dataset.id = event.target.dataset.id;
+    removeIndicatorHighlight();
+    addIndicatorHighlight(event.target.dataset.id);
   }
 }
 
+function removeIndicatorHighlight() {
+  const myCarousel = document.querySelector(".carousel-container");
+  const indicatorBtn = myCarousel.querySelectorAll(".carousel-indicator");
+  indicatorBtn.forEach(function (item) {
+    item.classList.remove("indicator-active");
+  });
+}
+
+function addIndicatorHighlight(currentData) {
+  const myCarousel = document.querySelector(".carousel-container");
+  myCarousel
+    .querySelectorAll(".carousel-indicator")
+    .item(currentData)
+    .classList.add("indicator-active");
+}
 export { dropDownEvent, carouselEvent };

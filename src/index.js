@@ -32,8 +32,14 @@ function dropDownButton() {
 function carousel() {
   const myImg = [Pudding, Burger, Peach];
 
-  const carousel = createCarousel(myImg[0]);
+  const carousel = createCarousel(myImg);
   const carouselBtn = carousel.querySelectorAll("button");
+  const currentData = carousel.querySelector(".active").dataset.id;
+  carousel
+    .querySelectorAll("#carouselIndicatorBtn")
+    .item(currentData)
+    .classList.add("indicator-active");
+
   carouselBtn.forEach((element) => {
     element.addEventListener("click", function (event) {
       carouselEvent(event, myImg);

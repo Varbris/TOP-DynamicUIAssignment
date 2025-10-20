@@ -112,3 +112,34 @@
 .previous:active {
   background-color: rgba(0, 0, 0, 0.356);
 }
+
+.carousel-indicator {
+  padding-left: 5vw;
+  padding-top: 6px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.301);
+  cursor: default;
+}
+
+.carousel-indicator:hover {
+  cursor: pointer;
+}
+
+.carousel-indicator-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  position: absolute;
+  margin-left: 35%;
+  margin-right: 35%;
+  padding: 10px;
+  z-index: 2;
+  right: 0;
+  bottom: 22vh;
+  left: 0;
+  gap: 10px;
+}
+
+.indicator-active {
+  background-color: rgba(0, 0, 0, 0.87);
+}

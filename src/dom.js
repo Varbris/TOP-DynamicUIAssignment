@@ -56,17 +56,35 @@ function createCarousel(imageData) {
   carouselContainer.addClassList("carousel-container");
   const carouselImgContainer = createElement("div");
   carouselImgContainer.addClassList("carousel-img-container");
+  const carouselIndicatorContainer = createElement("div");
+  carouselIndicatorContainer.addClassList("carousel-indicator-container");
 
   const img = new Image();
-  img.src = imageData;
+  img.src = imageData[0];
   img.classList.add("active");
   img.setAttribute("data-id", "0");
 
   carouselImgContainer.addChild(img);
+  const currentDisplayData =
+    carouselImgContainer.el.querySelector(".active").dataset.id;
+  console.log(currentDisplayData);
   carouselContainer.addChild(carouselImgContainer.el);
   carouselContainer.addChild(createCarouselBtn("previous", Previous));
   carouselContainer.addChild(createCarouselBtn("next", Next));
+  imageData.forEach(function (item, index) {
+    const carouselIndicator = createCarouselIndicators();
+    carouselIndicator.setAttribute("data-id", index);
+    carouselIndicatorContainer.addChild(carouselIndicator);
+  });
+  carouselImgContainer.addChild(carouselIndicatorContainer.el);
   return carouselContainer.el;
+}
+
+function createCarouselIndicators() {
+  const button = createElement("button");
+  button.addClassList("carousel-indicator");
+  button.addAttribute("id", "carouselIndicatorBtn");
+  return button.el;
 }
 
 function createCarouselBtn(classname, img) {

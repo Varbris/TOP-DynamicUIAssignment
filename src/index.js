@@ -14,10 +14,17 @@ document.addEventListener("DOMContentLoaded", main);
 
 function main() {
   const body = document.getElementById("body");
+  const h1 = document.createElement("h1");
+  const artSource = document.createElement("a");
+  artSource.href = "https://www.pixiv.net/en/users/1096811";
+  artSource.innerText = "チャイ";
+  h1.innerText = "Art Source By: ";
+  h1.appendChild(artSource);
   const layout = createLayout();
   body.appendChild(layout);
   body.querySelector("nav").appendChild(dropDownButton());
   body.querySelector("article").appendChild(carousel());
+  body.querySelector("article").appendChild(h1);
 }
 
 function dropDownButton() {

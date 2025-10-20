@@ -67,7 +67,7 @@ function createCarousel(imageData) {
   carouselImgContainer.addChild(img);
   const currentDisplayData =
     carouselImgContainer.el.querySelector(".active").dataset.id;
-  console.log(currentDisplayData);
+
   carouselContainer.addChild(carouselImgContainer.el);
   carouselContainer.addChild(createCarouselBtn("previous", Previous));
   carouselContainer.addChild(createCarouselBtn("next", Next));

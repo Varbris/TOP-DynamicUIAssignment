@@ -13,15 +13,19 @@ function dropDownEvent(event, dropDownElement) {
 }
 
 function carouselEvent(event, myData) {
-  const currentData = document.querySelector(".carousel-img-container")
+  let currentData = document.querySelector(".carousel-img-container")
     .childNodes[0].dataset.id;
+  currentData = parseInt(currentData);
 
-  previousBtn(event, myData, parseInt(currentData));
-  nextBtn(event, myData, parseInt(currentData));
-  indicatorBtn(event, myData, parseInt(currentData));
+  previousBtn(event, myData, currentData);
+  nextBtn(event, myData, currentData);
+  indicatorBtn(event, myData, currentData);
 }
 
 function nextBtn(event, myData, currentData) {
+  if (currentData === myData.length - 1) {
+    currentData = -1;
+  }
   if (currentData < myData.length - 1 && event.target.id === "nextBtn") {
     currentData++;
     const myCarousel = document.querySelector(".carousel-container");
@@ -36,6 +40,7 @@ function nextBtn(event, myData, currentData) {
 }
 
 function previousBtn(event, myData, currentData) {
+  console.log("awikwok");
   if (
     event.target.id === "previousBtn" &&
     currentData !== 0 &&

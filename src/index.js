@@ -5,7 +5,7 @@ import {
   createDropDown,
   createLayout,
 } from "./dom";
-import { carouselEvent, dropDownEvent } from "./event";
+import { carouselEvent, dropDownEvent, nextBtn } from "./event";
 import Pudding from "./img/1.png";
 import Burger from "./img/2.png";
 import Peach from "./img/3.png";
@@ -40,7 +40,9 @@ function carousel() {
   const myImg = [Pudding, Burger, Peach];
 
   const carousel = createCarousel(myImg);
+  const carouselCurrentImg = carousel.querySelector(".active");
   const carouselBtn = carousel.querySelectorAll("button");
+  //add indicator for first load
   const currentData = carousel.querySelector(".active").dataset.id;
   carousel
     .querySelectorAll("#carouselIndicatorBtn")
@@ -49,8 +51,20 @@ function carousel() {
 
   carouselBtn.forEach((element) => {
     element.addEventListener("click", function (event) {
-      carouselEvent(event, myImg);
+      const myCarouselEvent = carouselEvent();
+      myCarouselEvent.previousBtn(event, myImg);
+      myCarouselEvent.nextBtn(event, myImg);
+      myCarouselEvent.indicatorBtn(event, myImg);
     });
   });
+
+  carouselBtn.forEach(function (element) {
+    if (element.id === "nextBtn") {
+      setInterval(function () {
+        element.click();
+      }, 5000);
+    }
+  });
+
   return carousel;
 }
